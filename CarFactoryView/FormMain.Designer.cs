@@ -150,6 +150,7 @@ namespace CarFactoryView
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormMain";
             this.Text = "Автомобильный завод";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMain_FormClosing);
             this.Load += new System.EventHandler(this.FormMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.menuStrip1.ResumeLayout(false);

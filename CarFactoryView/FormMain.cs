@@ -10,13 +10,13 @@ namespace CarFactoryView
     public partial class FormMain : Form
     {
         private readonly IOrderLogic _orderLogic;
-       // private readonly FileDataListSingleton source;
+        private readonly FileDataListSingleton source;
 
         public FormMain(IOrderLogic orderLogic)
         {
             InitializeComponent();
             _orderLogic = orderLogic;
-           // source = FileDataListSingleton.GetInstance();
+            source = FileDataListSingleton.GetInstance();
         }
 
         private void FormMain_Load(object sender, EventArgs e)
@@ -123,9 +123,9 @@ MessageBoxIcon.Error);
             form.ShowDialog();
         }
 
-       // private void FormMain_FormClosing(object sender, FormClosingEventArgs e)
-       // {
-       //     source.SaveData();
-      //  }
+          private void FormMain_FormClosing(object sender, FormClosingEventArgs e)
+          {
+               source.SaveData();
+          }
     }
 }

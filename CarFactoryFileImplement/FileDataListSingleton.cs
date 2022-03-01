@@ -24,9 +24,9 @@ namespace CarFactoryFileImplement
 
         private FileDataListSingleton()
         {
-           // Components = LoadComponents();
-           // Orders = LoadOrders();
-           // Cars = LoadCars();
+           Components = LoadComponents();
+           Orders = LoadOrders();
+           Cars = LoadCars();
         }
 
         public static FileDataListSingleton GetInstance()
@@ -51,7 +51,7 @@ namespace CarFactoryFileImplement
             var list = new List<Component>();
             if (File.Exists(ComponentFileName))
             {
-                var xDocument = XDocument.Load(ComponentFileName);
+                XDocument xDocument = XDocument.Load(ComponentFileName);
                 var xElements = xDocument.Root.Elements("Component").ToList();
                 foreach(var elem in xElements)
                 {
@@ -70,16 +70,16 @@ namespace CarFactoryFileImplement
             var list = new List<Order>();
             if (File.Exists(OrderFileName))
             {
-                var xDocument = XDocument.Load(OrderFileName);
+                XDocument xDocument = XDocument.Load(OrderFileName);
                 var xElements = xDocument.Root.Elements("Order").ToList();
                 foreach(var elem in xElements)
                 {
                     list.Add(new Order
                     {
                         Id = Convert.ToInt32(elem.Attribute("Id").Value),
-                        CarId = Convert.ToInt32(elem.Attribute("CarId").Value),
-                        Count = Convert.ToInt32(elem.Attribute("Count").Value),
-                        Sum = Convert.ToDecimal(elem.Attribute("Sum").Value),
+                        CarId = Convert.ToInt32(elem.Element("CarId").Value),
+                        Count = Convert.ToInt32(elem.Element("Count").Value),
+                        Sum = Convert.ToDecimal(elem.Element("Sum").Value),
                         Status = (OrderStatus)Convert.ToInt32(elem.Element("Status").Value),
                         DateCreate = Convert.ToDateTime(elem.Element("DateCreate").Value),
                         DateImplement = !string.IsNullOrEmpty(elem.Element("DateImplement").Value) ? Convert.ToDateTime(elem.Element("DateImplement").Value) : (DateTime?)null
@@ -94,7 +94,7 @@ namespace CarFactoryFileImplement
             var list = new List<Car>();
             if (File.Exists(CarFileName))
             {
-                var xDocument = XDocument.Load(CarFileName);
+                XDocument xDocument = XDocument.Load(CarFileName);
                 var xElements = xDocument.Root.Elements("Car").ToList();
 
                 foreach(var elem in xElements)
@@ -108,7 +108,7 @@ namespace CarFactoryFileImplement
                     {
                         Id = Convert.ToInt32(elem.Attribute("Id").Value),
                         CarName = elem.Element("CarName").Value,
-                        Price = Convert.ToDecimal(elem.Attribute("Price").Value),
+                        Price = Convert.ToDecimal(elem.Element("Price").Value),
                         CarComponents = carComp
                     });
                 }
@@ -144,15 +144,15 @@ namespace CarFactoryFileImplement
                 {
                     xElement.Add(new XElement("Order",
                         new XAttribute("Id", order.Id),
-                        new XAttribute("CarId", order.CarId),
-                        new XAttribute("Count", order.Count),
-                        new XAttribute("Sum", order.Sum),
-                        new XElement("Status", order.Status),
+                        new XElement("CarId", order.CarId),
+                        new XElement("Count", order.Count),
+                        new XElement("Sum", order.Sum),
+                        new XElement("Status", (int)order.Status),
                         new XElement("DateCreate", order.DateCreate.ToString()),
                         new XElement("DateImplement", order.DateImplement?.ToString())));
                 }
 
-                var xDocument = new XDocument(xElement);
+                XDocument xDocument = new XDocument(xElement);
                 xDocument.Save(OrderFileName);
             }
         }
@@ -179,7 +179,7 @@ namespace CarFactoryFileImplement
                         compElement));
                 }
 
-                var xDocument = new XDocument(xElement);
+                XDocument xDocument = new XDocument(xElement);
                 xDocument.Save(CarFileName);
             }
         }
