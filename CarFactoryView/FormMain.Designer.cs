@@ -124,14 +124,14 @@ namespace CarFactoryView
             // componentsToolStripMenuItem
             // 
             this.componentsToolStripMenuItem.Name = "componentsToolStripMenuItem";
-            this.componentsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.componentsToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.componentsToolStripMenuItem.Text = "Компоненты";
             this.componentsToolStripMenuItem.Click += new System.EventHandler(this.componentsToolStripMenuItem_Click);
             // 
             // carsToolStripMenuItem
             // 
             this.carsToolStripMenuItem.Name = "carsToolStripMenuItem";
-            this.carsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.carsToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.carsToolStripMenuItem.Text = "Автомобили";
             this.carsToolStripMenuItem.Click += new System.EventHandler(this.carsToolStripMenuItem_Click);
             // 
@@ -150,6 +150,7 @@ namespace CarFactoryView
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormMain";
             this.Text = "Автомобильный завод";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMain_FormClosing);
             this.Load += new System.EventHandler(this.FormMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.menuStrip1.ResumeLayout(false);

@@ -1,5 +1,6 @@
 ﻿using CarFactoryContracts.BindingModels;
 using CarFactoryContracts.BuisnessLogicsContracts;
+using CarFactoryFileImplement;
 using System;
 using System.Windows.Forms;
 using Unity;
@@ -9,11 +10,13 @@ namespace CarFactoryView
     public partial class FormMain : Form
     {
         private readonly IOrderLogic _orderLogic;
+        private readonly FileDataListSingleton source;
 
         public FormMain(IOrderLogic orderLogic)
         {
             InitializeComponent();
             _orderLogic = orderLogic;
+            source = FileDataListSingleton.GetInstance();
         }
 
         private void FormMain_Load(object sender, EventArgs e)
@@ -119,5 +122,10 @@ MessageBoxIcon.Error);
             var form = Program.Container.Resolve<FormCars>();
             form.ShowDialog();
         }
+
+          private void FormMain_FormClosing(object sender, FormClosingEventArgs e)
+          {
+               source.SaveData();
+          }
     }
 }
