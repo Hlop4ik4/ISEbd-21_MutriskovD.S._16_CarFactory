@@ -46,12 +46,12 @@ namespace CarFactoryDatabaseImplement.Implements
                 return null;
             }
             using var context = new CarFactoryDatabase();
-            var product = context.Cars
+            var car = context.Cars
             .Include(rec => rec.CarComponents)
             .ThenInclude(rec => rec.Component)
             .FirstOrDefault(rec => rec.CarName == model.CarName ||
             rec.Id == model.Id);
-            return product != null ? CreateModel(product) : null;
+            return car != null ? CreateModel(car) : null;
         }
 
         public void Insert(CarBindingModel model)
@@ -60,8 +60,15 @@ namespace CarFactoryDatabaseImplement.Implements
             using var transaction = context.Database.BeginTransaction();
             try
             {
-                context.Cars.Add(CreateModel(model, new Car(),
-                context));
+                var car = new Car
+                {
+                    CarName = model.CarName,
+                    Price = model.Price
+                };
+                context.Cars.Add(car);
+                context.SaveChanges();
+
+                CreateModel(model, car, context);
                 context.SaveChanges();
                 transaction.Commit();
             }
@@ -84,6 +91,9 @@ namespace CarFactoryDatabaseImplement.Implements
                 {
                     throw new Exception("Элемент не найден");
                 }
+                element.CarName = model.CarName;
+                element.Price = model.Price;
+
                 CreateModel(model, element, context);
                 context.SaveChanges();
                 transaction.Commit();
@@ -122,6 +132,7 @@ namespace CarFactoryDatabaseImplement.Implements
                 rec.CarId == model.Id.Value).ToList();
                 context.CarComponents.RemoveRange(carComponents.Where(rec =>
                 !model.CarComponents.ContainsKey(rec.ComponentId)).ToList());
+                context.SaveChanges();
                 foreach(var updateComponent in carComponents)
                 {
                     updateComponent.Count =
