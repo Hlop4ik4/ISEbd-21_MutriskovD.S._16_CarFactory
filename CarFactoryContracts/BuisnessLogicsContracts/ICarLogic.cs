@@ -9,6 +9,5 @@ namespace CarFactoryContracts.BuisnessLogicsContracts
         List<CarViewModel> Read(CarBindingModel model);
         void CreateOrUpdate(CarBindingModel model);
         void Delete(CarBindingModel model);
-
     }
 }

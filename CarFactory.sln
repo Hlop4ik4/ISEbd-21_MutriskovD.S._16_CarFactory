@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarFactoryListImplement", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarFactoryView", "CarFactoryView\CarFactoryView.csproj", "{0700A006-E980-4CF4-A047-A1C53D2F5930}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarFactoryFileImplement", "CarFactoryFileImplement\CarFactoryFileImplement.csproj", "{AB511239-1756-49B5-8B7E-997BDF20F130}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarFactoryFileImplement", "CarFactoryFileImplement\CarFactoryFileImplement.csproj", "{AB511239-1756-49B5-8B7E-997BDF20F130}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarFactoryDatabaseImplement", "CarFactoryDatabaseImplement\CarFactoryDatabaseImplement.csproj", "{20265598-050E-4FCA-8574-8E8A1DDA133D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{AB511239-1756-49B5-8B7E-997BDF20F130}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AB511239-1756-49B5-8B7E-997BDF20F130}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AB511239-1756-49B5-8B7E-997BDF20F130}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20265598-050E-4FCA-8574-8E8A1DDA133D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20265598-050E-4FCA-8574-8E8A1DDA133D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20265598-050E-4FCA-8574-8E8A1DDA133D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20265598-050E-4FCA-8574-8E8A1DDA133D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
