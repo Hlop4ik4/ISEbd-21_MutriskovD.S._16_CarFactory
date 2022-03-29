@@ -10,12 +10,14 @@ namespace CarFactoryView
     public partial class FormMain : Form
     {
         private readonly IOrderLogic _orderLogic;
+        private readonly IReportLogic _reportLogic;
         private readonly FileDataListSingleton source;
 
-        public FormMain(IOrderLogic orderLogic)
+        public FormMain(IOrderLogic orderLogic, IReportLogic reportLogic)
         {
             InitializeComponent();
             _orderLogic = orderLogic;
+            _reportLogic = reportLogic;
             source = FileDataListSingleton.GetInstance();
         }
 
@@ -123,9 +125,31 @@ MessageBoxIcon.Error);
             form.ShowDialog();
         }
 
-          private void FormMain_FormClosing(object sender, FormClosingEventArgs e)
-          {
-               source.SaveData();
-          }
+        private void FormMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            source.SaveData();
+        }
+
+        private void ComponentsListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using var dialog = new SaveFileDialog { Filter = "docx|*.docx" };
+            if(dialog.ShowDialog() == DialogResult.OK)
+            {
+                _reportLogic.SaveComponentsToWordFile(new ReportBindingModel { FileName = dialog.FileName });
+                MessageBox.Show("Выполнено", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void ComponentCarsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = Program.Container.Resolve<FormReportCarComponent>();
+            form.ShowDialog();
+        }
+
+        private void OrdersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = Program.Container.Resolve<FormReportOrders>();
+            form.ShowDialog();
+        }
     }
 }

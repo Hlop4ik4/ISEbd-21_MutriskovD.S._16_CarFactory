@@ -23,13 +23,13 @@ namespace CarFactoryBusinessLogic.OfficePackage
                 }
             });
 
-            foreach(var component in info.Components)
+            foreach(var car in info.Cars)
             {
                 CreateParagraph(new WordParagraph
                 {
                     Texts = new List<(string, WordTextProperties)>
                     {
-                        (component.ComponentName, new WordTextProperties{ Size = "24", })
+                        (car.CarName, new WordTextProperties{ Size = "24", })
                     },
                     TextProperties = new WordTextProperties
                     {

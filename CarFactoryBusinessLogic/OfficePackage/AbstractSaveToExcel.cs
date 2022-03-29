@@ -34,18 +34,18 @@ namespace CarFactoryBusinessLogic.OfficePackage
                 {
                     ColumnName = "A",
                     RowIndex = rowIndex,
-                    Text = cc.ComponentName,
+                    Text = cc.CarName,
                     StyleInfo = ExcelStyleInfoType.Text
                 });
                 rowIndex++;
 
-                foreach(var car in cc.Cars)
+                foreach(var component in cc.Components)
                 {
                     InsertCellInWorksheet(new ExcelCellParameters
                     {
                         ColumnName = "B",
                         RowIndex = rowIndex,
-                        Text = car.Item1,
+                        Text = component.Item1,
                         StyleInfo = ExcelStyleInfoType.TextWithBorder
                     });
 
@@ -53,7 +53,7 @@ namespace CarFactoryBusinessLogic.OfficePackage
                     {
                         ColumnName = "C",
                         RowIndex = rowIndex,
-                        Text = car.Item2.ToString(),
+                        Text = component.Item2.ToString(),
                         StyleInfo = ExcelStyleInfoType.TextWithBorder
                     });
 

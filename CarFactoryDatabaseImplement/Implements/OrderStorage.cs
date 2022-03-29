@@ -43,7 +43,7 @@ namespace CarFactoryDatabaseImplement.Implements
             {
                 return context.Orders
                     .Include(rec => rec.Car)
-                    .Where(rec => rec.CarId == model.CarId)
+                    .Where(rec => rec.CarId == model.CarId || (model.DateFrom.GetHashCode() != 0 && model.DateTo.GetHashCode() != 0 && rec.DateCreate >= model.DateFrom && rec.DateCreate <= model.DateTo))
                     .Select(rec => new OrderViewModel
                     {
                         Id = rec.Id,

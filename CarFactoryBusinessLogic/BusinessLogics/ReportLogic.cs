@@ -33,24 +33,20 @@ namespace CarFactoryBusinessLogic.BusinessLogics
 
         public List<ReportCarComponentViewModel> GetCarComponent()
         {
-            var components = _componentStorage.GetFullList();
             var cars = _carStorage.GetFullList();
             var list = new List<ReportCarComponentViewModel>();
-            foreach (var component in components)
+            foreach (var car in cars)
             {
                 var record = new ReportCarComponentViewModel
                 {
-                    ComponentName = component.ComponentName,
-                    Cars = new List<Tuple<string, int>>(),
+                    CarName = car.CarName,
+                    Components = new List<Tuple<string, int>>(),
                     TotalCount = 0
                 };
-                foreach (var car in cars)
+                foreach (var component in car.CarComponents)
                 {
-                    if (car.CarComponents.ContainsKey(component.Id))
-                    {
-                        record.Cars.Add(new Tuple<string, int>(car.CarName, car.CarComponents[component.Id].Item2));
-                        record.TotalCount += car.CarComponents[component.Id].Item2;
-                    }
+                        record.Components.Add(new Tuple<string, int>(component.Value.Item1, component.Value.Item2));
+                        record.TotalCount += component.Value.Item2;
                 }
                 list.Add(record);
             }
@@ -80,8 +76,8 @@ namespace CarFactoryBusinessLogic.BusinessLogics
             _saveToWord.CreateDoc(new WordInfo
             {
                 FileName = model.FileName,
-                Title = "Список компонент",
-                Components = _componentStorage.GetFullList()
+                Title = "Список автомобилей",
+                Cars = _carStorage.GetFullList()
             });
         }
 
@@ -90,7 +86,7 @@ namespace CarFactoryBusinessLogic.BusinessLogics
             _saveToExcel.CreateReport(new ExcelInfo
             {
                 FileName = model.FileName,
-                Title = "Список компонент",
+                Title = "Список автомобилей",
                 CarComponents = GetCarComponent()
             });
         }
