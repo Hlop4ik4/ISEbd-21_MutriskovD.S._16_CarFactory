@@ -11,10 +11,16 @@ namespace CarFactoryContracts.ViewModels
     public class OrderViewModel
     {
         public int Id { get; set; }
+
         public int CarId { get; set; }
+
+        public int ClientId { get; set; }
 
         [DisplayName("Изделие")]
         public string CarName { get; set; }
+
+        [DisplayName("Имя клиента")]
+        public string ClientName { get; set; }
 
         [DisplayName("Количество")]
         public int Count { get; set; }
