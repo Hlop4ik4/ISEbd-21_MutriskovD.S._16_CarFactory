@@ -31,7 +31,10 @@ namespace CarFactoryFileImplement.Implements
             {
                 return null;
             }
-            return source.Orders.Where(rec => rec.CarId == model.CarId).Select(CreateModel).ToList();
+            return source.Orders
+                .Where(rec => rec.CarId == model.CarId || (model.DateFrom.GetHashCode() != 0 && model.DateTo.GetHashCode() != 0 && rec.DateCreate >= model.DateFrom && rec.DateCreate <= model.DateTo))
+                .Select(CreateModel)
+                .ToList();
         }
 
         public OrderViewModel GetElement(OrderBindingModel model)
