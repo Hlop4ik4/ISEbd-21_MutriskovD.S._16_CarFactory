@@ -29,7 +29,8 @@ namespace CarFactoryBusinessLogic.OfficePackage
                 {
                     Texts = new List<(string, WordTextProperties)>
                     {
-                        (car.CarName, new WordTextProperties{ Size = "24", })
+                        (car.CarName + ": ", new WordTextProperties{ Size = "24", Bold = true }),
+                        (car.Price.ToString(), new WordTextProperties{ Size = "24", Bold = false})
                     },
                     TextProperties = new WordTextProperties
                     {

@@ -27,7 +27,7 @@ namespace CarFactoryView
             {
                 Dock = DockStyle.Fill
             };
-            reportViewer.LocalReport.LoadReportDefinition(new FileStream("C:\\Users\\user\\source\\repos\\ISEbd-21_MutriskovD.S._16_CarFactory\\CarFactoryView\\Report.rdlc", FileMode.Open));
+            reportViewer.LocalReport.LoadReportDefinition(new FileStream("C:\\Users\\Hlop4ik4\\source\\repos\\TP\\CarFactoryView\\Report.rdlc", FileMode.Open));
             Controls.Clear();
             Controls.Add(reportViewer);
             Controls.Add(panel);

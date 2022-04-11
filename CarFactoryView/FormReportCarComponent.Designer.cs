@@ -61,13 +61,13 @@
             // 
             // ColumnComponent
             // 
-            this.ColumnComponent.HeaderText = "Компонент";
+            this.ColumnComponent.HeaderText = "Автомобиль";
             this.ColumnComponent.Name = "ColumnComponent";
             this.ColumnComponent.Width = 270;
             // 
             // ColumnCar
             // 
-            this.ColumnCar.HeaderText = "Автомобиль";
+            this.ColumnCar.HeaderText = "Компонент";
             this.ColumnCar.Name = "ColumnCar";
             this.ColumnCar.Width = 200;
             // 
@@ -94,9 +94,9 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button buttonSaveToExcel;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnComponent;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCar;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCount;
-        private System.Windows.Forms.Button buttonSaveToExcel;
     }
 }
