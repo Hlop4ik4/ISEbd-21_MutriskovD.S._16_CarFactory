@@ -24,7 +24,11 @@ namespace CarFactoryRestApi.Controllers
         public List<CarViewModel> GetCarList() => _car.Read(null)?.ToList();
 
         [HttpGet]
-        public CarViewModel GetCar(int carId) => _car.Read(new CarBindingModel { Id = carId })?[0];
+        public CarViewModel GetCar(int carId)
+        {
+            var rec = _car.Read(new CarBindingModel { Id = carId })?[0];
+            return rec;
+        }
 
         [HttpGet]
         public List<OrderViewModel> GetOrders(int clientId) => _order.Read(new OrderBindingModel { ClientId = clientId });

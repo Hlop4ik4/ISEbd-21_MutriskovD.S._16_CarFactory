@@ -16,6 +16,7 @@ namespace CarFactoryClientApp
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            APIClient.Connect(Configuration);
         }
 
         public IConfiguration Configuration { get; }

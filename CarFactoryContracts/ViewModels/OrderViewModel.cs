@@ -14,6 +14,7 @@ namespace CarFactoryContracts.ViewModels
 
         public int CarId { get; set; }
 
+        [DisplayName("Id клиента")]
         public int ClientId { get; set; }
 
         [DisplayName("Изделие")]
