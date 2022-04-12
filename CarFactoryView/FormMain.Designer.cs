@@ -39,6 +39,10 @@ namespace CarFactoryView
             this.guideToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.componentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.carsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.отчетыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ComponentsListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ComponentCarsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.OrdersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -105,7 +109,8 @@ namespace CarFactoryView
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.guideToolStripMenuItem});
+            this.guideToolStripMenuItem,
+            this.отчетыToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(813, 24);
@@ -134,6 +139,37 @@ namespace CarFactoryView
             this.carsToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.carsToolStripMenuItem.Text = "Автомобили";
             this.carsToolStripMenuItem.Click += new System.EventHandler(this.carsToolStripMenuItem_Click);
+            // 
+            // отчетыToolStripMenuItem
+            // 
+            this.отчетыToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ComponentsListToolStripMenuItem,
+            this.ComponentCarsToolStripMenuItem,
+            this.OrdersToolStripMenuItem});
+            this.отчетыToolStripMenuItem.Name = "отчетыToolStripMenuItem";
+            this.отчетыToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
+            this.отчетыToolStripMenuItem.Text = "Отчеты";
+            // 
+            // ComponentsListToolStripMenuItem
+            // 
+            this.ComponentsListToolStripMenuItem.Name = "ComponentsListToolStripMenuItem";
+            this.ComponentsListToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+            this.ComponentsListToolStripMenuItem.Text = "Список компонентов";
+            this.ComponentsListToolStripMenuItem.Click += new System.EventHandler(this.ComponentsListToolStripMenuItem_Click);
+            // 
+            // ComponentCarsToolStripMenuItem
+            // 
+            this.ComponentCarsToolStripMenuItem.Name = "ComponentCarsToolStripMenuItem";
+            this.ComponentCarsToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+            this.ComponentCarsToolStripMenuItem.Text = "Компоненты по изделиям";
+            this.ComponentCarsToolStripMenuItem.Click += new System.EventHandler(this.ComponentCarsToolStripMenuItem_Click);
+            // 
+            // OrdersToolStripMenuItem
+            // 
+            this.OrdersToolStripMenuItem.Name = "OrdersToolStripMenuItem";
+            this.OrdersToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+            this.OrdersToolStripMenuItem.Text = "Список заказов";
+            this.OrdersToolStripMenuItem.Click += new System.EventHandler(this.OrdersToolStripMenuItem_Click);
             // 
             // FormMain
             // 
@@ -172,5 +208,9 @@ namespace CarFactoryView
         private ToolStripMenuItem guideToolStripMenuItem;
         private ToolStripMenuItem componentsToolStripMenuItem;
         private ToolStripMenuItem carsToolStripMenuItem;
+        private ToolStripMenuItem отчетыToolStripMenuItem;
+        private ToolStripMenuItem ComponentsListToolStripMenuItem;
+        private ToolStripMenuItem ComponentCarsToolStripMenuItem;
+        private ToolStripMenuItem OrdersToolStripMenuItem;
     }
 }
