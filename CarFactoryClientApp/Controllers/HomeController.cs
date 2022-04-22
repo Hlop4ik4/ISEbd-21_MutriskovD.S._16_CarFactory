@@ -142,7 +142,7 @@ namespace CarFactoryClientApp.Controllers
         [HttpPost]
         public decimal Calc(decimal count, int car)
         {
-            CarViewModel c = APIClient.GetRequest<CarViewModel>($"api/main/getcar?carId = {car}");
+            CarViewModel c = APIClient.GetRequest<CarViewModel>($"api/main/getcar?carId={car}");
             return count * c.Price;
         }
     }
