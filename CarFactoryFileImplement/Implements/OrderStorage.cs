@@ -86,6 +86,7 @@ namespace CarFactoryFileImplement.Implements
         private Order CreateModel(OrderBindingModel model, Order order)
         {
             order.CarId = model.CarId;
+            order.ClientId = model.ClientId.Value;
             order.Count = model.Count;
             order.Sum = model.Sum;
             order.Status = model.Status;
@@ -101,6 +102,8 @@ namespace CarFactoryFileImplement.Implements
                 Id = order.Id,
                 CarName = source.Cars.FirstOrDefault(car => car.Id == order.CarId)?.CarName,
                 CarId = order.CarId,
+                ClientId = order.ClientId,
+                ClientName = source.Clients.FirstOrDefault(client => client.Id == order.ClientId)?.ClientName,
                 Count = order.Count,
                 Sum = order.Sum,
                 Status = order.Status,

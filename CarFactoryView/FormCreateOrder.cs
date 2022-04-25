@@ -14,11 +14,14 @@ namespace CarFactoryView
 
         private readonly IOrderLogic _logicO;
 
-        public FormCreateOrder(ICarLogic logicC, IOrderLogic logicO)
+        private readonly IClientLogic _logicClient;
+
+        public FormCreateOrder(ICarLogic logicC, IOrderLogic logicO, IClientLogic logicClient)
         {
             InitializeComponent();
             _logicC = logicC;
             _logicO = logicO;
+            _logicClient = logicClient;
         }
 
         private void FormCreateOrder_Load(object sender, EventArgs e)
@@ -32,6 +35,14 @@ namespace CarFactoryView
                     comboBoxCar.ValueMember = "Id";
                     comboBoxCar.DataSource = listP;
                     comboBoxCar.SelectedItem = null;
+                }
+                List<ClientViewModel> listClient = _logicClient.Read(null);
+                if(listClient != null)
+                {
+                    comboBoxCLient.DisplayMember = "ClientName";
+                    comboBoxCLient.ValueMember = "Id";
+                    comboBoxCLient.DataSource = listClient;
+                    comboBoxCLient.SelectedItem = null;
                 }
             }
             catch (Exception ex)
@@ -74,7 +85,7 @@ MessageBoxIcon.Error);
         {
             if (string.IsNullOrEmpty(textBoxCount.Text))
             {
-                MessageBox.Show("Заполните поле Count", "Ошибка",
+                MessageBox.Show("Заполните поле количество", "Ошибка",
 MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
@@ -84,13 +95,20 @@ MessageBoxButtons.OK, MessageBoxIcon.Error);
 MessageBoxIcon.Error);
                 return;
             }
+            if (comboBoxCar.SelectedValue == null)
+            {
+                MessageBox.Show("Выберите клиента", "Ошибка", MessageBoxButtons.OK,
+MessageBoxIcon.Error);
+                return;
+            }
             try
             {
                 _logicO.CreateOrder(new CreateOrderBindingModel
                 {
                     CarId = Convert.ToInt32(comboBoxCar.SelectedValue),
                     Count = Convert.ToInt32(textBoxCount.Text),
-                    Sum = Convert.ToDecimal(textBoxSum.Text)
+                    Sum = Convert.ToDecimal(textBoxSum.Text),
+                    ClientId = Convert.ToInt32(comboBoxCLient.SelectedValue)
                 });
                 MessageBox.Show("Сохранение прошло успешно", "Сообщение",
 MessageBoxButtons.OK, MessageBoxIcon.Information);

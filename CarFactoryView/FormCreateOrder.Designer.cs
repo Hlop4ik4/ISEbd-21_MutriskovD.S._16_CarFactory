@@ -37,6 +37,8 @@ namespace CarFactoryView
             this.textBoxSum = new System.Windows.Forms.TextBox();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonSave = new System.Windows.Forms.Button();
+            this.labelClient = new System.Windows.Forms.Label();
+            this.comboBoxCLient = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // labelCar
@@ -92,7 +94,7 @@ namespace CarFactoryView
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(258, 94);
+            this.buttonCancel.Location = new System.Drawing.Point(259, 123);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 23);
             this.buttonCancel.TabIndex = 3;
@@ -102,7 +104,7 @@ namespace CarFactoryView
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(177, 94);
+            this.buttonSave.Location = new System.Drawing.Point(178, 123);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(75, 23);
             this.buttonSave.TabIndex = 3;
@@ -110,11 +112,30 @@ namespace CarFactoryView
             this.buttonSave.UseVisualStyleBackColor = true;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
+            // labelClient
+            // 
+            this.labelClient.AutoSize = true;
+            this.labelClient.Location = new System.Drawing.Point(12, 97);
+            this.labelClient.Name = "labelClient";
+            this.labelClient.Size = new System.Drawing.Size(52, 15);
+            this.labelClient.TabIndex = 4;
+            this.labelClient.Text = "Клиент: ";
+            // 
+            // comboBoxCLient
+            // 
+            this.comboBoxCLient.FormattingEnabled = true;
+            this.comboBoxCLient.Location = new System.Drawing.Point(97, 94);
+            this.comboBoxCLient.Name = "comboBoxCLient";
+            this.comboBoxCLient.Size = new System.Drawing.Size(252, 23);
+            this.comboBoxCLient.TabIndex = 5;
+            // 
             // FormCreateOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(362, 127);
+            this.ClientSize = new System.Drawing.Size(362, 153);
+            this.Controls.Add(this.comboBoxCLient);
+            this.Controls.Add(this.labelClient);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.textBoxSum);
@@ -141,5 +162,7 @@ namespace CarFactoryView
         private TextBox textBoxSum;
         private Button buttonCancel;
         private Button buttonSave;
+        private Label labelClient;
+        private ComboBox comboBoxCLient;
     }
 }

@@ -17,7 +17,6 @@ namespace CarFactoryContracts.ViewModels
         [DisplayName("Логин")]
         public string Email { get; set; }
 
-        [DisplayName("Пароль")]
         public string Password { get; set; }
     }
 }
