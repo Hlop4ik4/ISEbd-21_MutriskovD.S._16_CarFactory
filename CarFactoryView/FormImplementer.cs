@@ -41,7 +41,7 @@ namespace CarFactoryView
         {
             if (string.IsNullOrEmpty(textBoxName.Text))
             {
-                MessageBox.Show("Заполните название", "Ошиька", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Заполните имя", "Ошиька", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (string.IsNullOrEmpty(textBoxWorkingTime.Text))

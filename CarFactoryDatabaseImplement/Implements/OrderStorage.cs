@@ -50,7 +50,6 @@ namespace CarFactoryDatabaseImplement.Implements
                 return context.Orders
                     .Include(rec => rec.Car)
                     .Include(rec => rec.Client)
-                    .Include(rec => rec.Implementer)
                     .Where(rec => rec.CarId == model.CarId || (model.DateFrom.GetHashCode() != 0 && model.DateTo.GetHashCode() != 0 && rec.DateCreate >= model.DateFrom && rec.DateCreate <= model.DateTo) ||
                     (model.ClientId.HasValue && rec.ClientId == model.ClientId) || 
                     (model.SearchStatus.HasValue && model.SearchStatus.Value == rec.Status) ||
