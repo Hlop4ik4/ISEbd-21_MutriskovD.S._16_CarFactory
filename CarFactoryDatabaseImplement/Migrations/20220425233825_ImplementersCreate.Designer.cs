@@ -4,14 +4,16 @@ using CarFactoryDatabaseImplement;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CarFactoryDatabaseImplement.Migrations
 {
     [DbContext(typeof(CarFactoryDatabase))]
-    partial class CarFactoryDatabaseModelSnapshot : ModelSnapshot
+    [Migration("20220425233825_ImplementersCreate")]
+    partial class ImplementersCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

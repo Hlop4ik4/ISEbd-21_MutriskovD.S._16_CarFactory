@@ -62,6 +62,7 @@ namespace CarFactoryBusinessLogic.BusinessLogics
             {
                 Id = order.Id,
                 ClientId = order.ClientId,
+                ImplementerId = order.ImplementerId,
                 CarId = order.CarId,
                 Count = order.Count,
                 Sum = order.Sum,
@@ -86,6 +87,7 @@ namespace CarFactoryBusinessLogic.BusinessLogics
             {
                 Id = order.Id,
                 ClientId = order.ClientId,
+                ImplementerId = order.ImplementerId,
                 CarId = order.CarId,
                 Count = order.Count,
                 Sum = order.Sum,
@@ -113,6 +115,7 @@ namespace CarFactoryBusinessLogic.BusinessLogics
             {
                 Id = order.Id,
                 ClientId = order.ClientId,
+                ImplementerId = order.ImplementerId,
                 CarId = order.CarId,
                 Count = order.Count,
                 Sum = order.Sum,

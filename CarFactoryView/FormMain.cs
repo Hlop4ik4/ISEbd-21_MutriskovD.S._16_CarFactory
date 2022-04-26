@@ -11,13 +11,17 @@ namespace CarFactoryView
     {
         private readonly IOrderLogic _orderLogic;
         private readonly IReportLogic _reportLogic;
+        private readonly IImplementerLogic _implementerLogic;
+        private readonly IWorkProcess _workProcess;
         private readonly FileDataListSingleton source;
 
-        public FormMain(IOrderLogic orderLogic, IReportLogic reportLogic)
+        public FormMain(IOrderLogic orderLogic, IReportLogic reportLogic, IImplementerLogic implementerLogic, IWorkProcess workProcess)
         {
             InitializeComponent();
             _orderLogic = orderLogic;
             _reportLogic = reportLogic;
+            _implementerLogic = implementerLogic;
+            _workProcess = workProcess;
             source = FileDataListSingleton.GetInstance();
         }
 
@@ -37,6 +41,8 @@ namespace CarFactoryView
                     dataGridView.Columns[0].Visible = false;
                     dataGridView.Columns[1].Visible = false;
                     dataGridView.Columns[2].Visible = false;
+                    dataGridView.Columns[3].Visible = false;
+                    dataGridView.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
                 }
             }
             catch(Exception ex)
@@ -155,6 +161,18 @@ MessageBoxIcon.Error);
         {
             var form = Program.Container.Resolve<FormClients>();
             form.ShowDialog();
+        }
+
+        private void ImplementersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = Program.Container.Resolve<FormImplementers>();
+            form.ShowDialog();
+        }
+
+        private void StartWorkToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _workProcess.DoWork(_implementerLogic, _orderLogic);
+            LoadData();
         }
     }
 }

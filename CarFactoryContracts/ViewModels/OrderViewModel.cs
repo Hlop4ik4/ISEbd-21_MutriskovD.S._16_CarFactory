@@ -17,11 +17,16 @@ namespace CarFactoryContracts.ViewModels
         [DisplayName("Id клиента")]
         public int ClientId { get; set; }
 
+        public int? ImplementerId { get; set; }
+
         [DisplayName("Изделие")]
         public string CarName { get; set; }
 
         [DisplayName("Имя клиента")]
         public string ClientName { get; set; }
+
+        [DisplayName("Имя исполнителя")]
+        public string ImplementerName { get; set; }
 
         [DisplayName("Количество")]
         public int Count { get; set; }

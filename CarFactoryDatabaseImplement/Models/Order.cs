@@ -17,6 +17,8 @@ namespace CarFactoryDatabaseImplement.Models
 
         public int ClientId { get; set; }
 
+        public int? ImplementerId { get; set; }
+
         [Required]
         public int Count { get; set; }
 
@@ -34,5 +36,7 @@ namespace CarFactoryDatabaseImplement.Models
         public virtual Car Car { get; set; }
 
         public virtual Client Client { get; set; }
+
+        public virtual Implementer Implementer { get; set; }
     }
 }

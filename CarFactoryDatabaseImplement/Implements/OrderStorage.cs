@@ -18,10 +18,13 @@ namespace CarFactoryDatabaseImplement.Implements
                 return context.Orders
                     .Include(rec => rec.Car)
                     .Include(rec => rec.Client)
+                    .Include(rec => rec.Implementer)
                     .Select(rec => new OrderViewModel
                     {
                         Id = rec.Id,
                         ClientId = rec.ClientId,
+                        ImplementerId = rec.ImplementerId,
+                        ImplementerName = rec.Implementer.Name,
                         ClientName = rec.Client.ClientName,
                         CarId = rec.CarId,
                         CarName = rec.Car.CarName,
@@ -47,12 +50,17 @@ namespace CarFactoryDatabaseImplement.Implements
                 return context.Orders
                     .Include(rec => rec.Car)
                     .Include(rec => rec.Client)
+                    .Include(rec => rec.Implementer)
                     .Where(rec => rec.CarId == model.CarId || (model.DateFrom.GetHashCode() != 0 && model.DateTo.GetHashCode() != 0 && rec.DateCreate >= model.DateFrom && rec.DateCreate <= model.DateTo) ||
-                    (model.ClientId.HasValue && rec.ClientId == model.ClientId))
+                    (model.ClientId.HasValue && rec.ClientId == model.ClientId) || 
+                    (model.SearchStatus.HasValue && model.SearchStatus.Value == rec.Status) ||
+                    (model.ImplementerId.HasValue && rec.ImplementerId == model.ImplementerId && model.Status == rec.Status))
                     .Select(rec => new OrderViewModel
                     {
                         Id = rec.Id,
                         ClientId = rec.ClientId,
+                        ImplementerId = rec.ImplementerId,
+                        ImplementerName = rec.Implementer.Name,
                         ClientName = rec.Client.ClientName,
                         CarId = rec.CarId,
                         CarName = rec.Car.CarName,
@@ -75,12 +83,18 @@ namespace CarFactoryDatabaseImplement.Implements
 
             using (var context = new CarFactoryDatabase())
             {
-                Order order = context.Orders.Include(rec => rec.Car).Include(rec => rec.Client).FirstOrDefault(rec => rec.Id == model.Id);
+                Order order = context.Orders
+                    .Include(rec => rec.Car)
+                    .Include(rec => rec.Client)
+                    .Include(rec => rec.Implementer)
+                    .FirstOrDefault(rec => rec.Id == model.Id);
                 return order != null ?
                 new OrderViewModel
                 {
                     Id = order.Id,
                     ClientId = order.ClientId,
+                    ImplementerId = order.ImplementerId,
+                    ImplementerName = order.ImplementerId.HasValue ? order.Implementer.Name : string.Empty,
                     ClientName = order.Client.ClientName,
                     CarId = order.CarId,
                     CarName = order.Car.CarName,
@@ -101,6 +115,7 @@ namespace CarFactoryDatabaseImplement.Implements
                 var order = new Order
                 {
                     ClientId = model.ClientId.Value,
+                    ImplementerId = model.ImplementerId,
                     CarId = model.CarId,
                     Count = model.Count,
                     Sum = model.Sum,
@@ -125,6 +140,7 @@ namespace CarFactoryDatabaseImplement.Implements
                     throw new Exception("Элемент не найден");
                 }
                 order.ClientId = model.ClientId.Value;
+                order.ImplementerId = model.ImplementerId;
                 order.CarId = model.CarId;
                 order.Count = model.Count;
                 order.Sum = model.Sum;
