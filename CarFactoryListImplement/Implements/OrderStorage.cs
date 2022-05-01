@@ -22,6 +22,7 @@ namespace CarFactoryListImplement.Implements
         private Order CreateModel(OrderBindingModel model, Order order)
         {
             order.CarId = model.CarId;
+            order.ClientId = model.ClientId.Value;
             order.Count = model.Count;
             order.Sum = model.Sum;
             order.Status = model.Status;
@@ -38,6 +39,8 @@ namespace CarFactoryListImplement.Implements
                 Id = order.Id,
                 CarName = source.Cars.FirstOrDefault(pizza => pizza.Id == order.CarId)?.CarName,
                 CarId = order.CarId,
+                ClientId = order.ClientId,
+                ClientName = source.Clients.FirstOrDefault(client => client.Id == order.ClientId)?.ClientName,
                 Count = order.Count,
                 Sum = order.Sum,
                 Status = order.Status,
@@ -65,7 +68,8 @@ namespace CarFactoryListImplement.Implements
             List<OrderViewModel> result = new List<OrderViewModel>();
             foreach (var order in source.Orders)
             {
-                if (order.CarId == model.CarId || (model.DateFrom.GetHashCode() != 0 && model.DateTo.GetHashCode() != 0 && order.DateCreate >= model.DateFrom && order.DateCreate <= model.DateTo))
+                if (order.CarId == model.CarId || (model.DateFrom.GetHashCode() != 0 && model.DateTo.GetHashCode() != 0 && order.DateCreate >= model.DateFrom && order.DateCreate <= model.DateTo) ||
+                    (model.ClientId.HasValue && order.ClientId == model.ClientId))
                 {
                     result.Add(CreateModel(order));
                 }

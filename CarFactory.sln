@@ -13,7 +13,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarFactoryView", "CarFactor
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarFactoryFileImplement", "CarFactoryFileImplement\CarFactoryFileImplement.csproj", "{AB511239-1756-49B5-8B7E-997BDF20F130}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarFactoryDatabaseImplement", "CarFactoryDatabaseImplement\CarFactoryDatabaseImplement.csproj", "{20265598-050E-4FCA-8574-8E8A1DDA133D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarFactoryDatabaseImplement", "CarFactoryDatabaseImplement\CarFactoryDatabaseImplement.csproj", "{20265598-050E-4FCA-8574-8E8A1DDA133D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarFactoryRestApi", "CarFactoryRestApi\CarFactoryRestApi.csproj", "{C9A5B316-A2DB-4482-80CD-DB9D57295887}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarFactoryClientApp", "CarFactoryClientApp\CarFactoryClientApp.csproj", "{9C7489B2-B64F-46DB-B443-31DF0FD0EB1B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +49,14 @@ Global
 		{20265598-050E-4FCA-8574-8E8A1DDA133D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{20265598-050E-4FCA-8574-8E8A1DDA133D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{20265598-050E-4FCA-8574-8E8A1DDA133D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9A5B316-A2DB-4482-80CD-DB9D57295887}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9A5B316-A2DB-4482-80CD-DB9D57295887}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9A5B316-A2DB-4482-80CD-DB9D57295887}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9A5B316-A2DB-4482-80CD-DB9D57295887}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C7489B2-B64F-46DB-B443-31DF0FD0EB1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C7489B2-B64F-46DB-B443-31DF0FD0EB1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C7489B2-B64F-46DB-B443-31DF0FD0EB1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C7489B2-B64F-46DB-B443-31DF0FD0EB1B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

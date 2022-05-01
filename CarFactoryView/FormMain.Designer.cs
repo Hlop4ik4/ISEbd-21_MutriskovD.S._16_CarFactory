@@ -43,6 +43,7 @@ namespace CarFactoryView
             this.ComponentsListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ComponentCarsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.OrdersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ClientsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -121,7 +122,8 @@ namespace CarFactoryView
             // 
             this.guideToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.componentsToolStripMenuItem,
-            this.carsToolStripMenuItem});
+            this.carsToolStripMenuItem,
+            this.ClientsToolStripMenuItem});
             this.guideToolStripMenuItem.Name = "guideToolStripMenuItem";
             this.guideToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
             this.guideToolStripMenuItem.Text = "Справочники";
@@ -129,14 +131,14 @@ namespace CarFactoryView
             // componentsToolStripMenuItem
             // 
             this.componentsToolStripMenuItem.Name = "componentsToolStripMenuItem";
-            this.componentsToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.componentsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.componentsToolStripMenuItem.Text = "Компоненты";
             this.componentsToolStripMenuItem.Click += new System.EventHandler(this.componentsToolStripMenuItem_Click);
             // 
             // carsToolStripMenuItem
             // 
             this.carsToolStripMenuItem.Name = "carsToolStripMenuItem";
-            this.carsToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.carsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.carsToolStripMenuItem.Text = "Автомобили";
             this.carsToolStripMenuItem.Click += new System.EventHandler(this.carsToolStripMenuItem_Click);
             // 
@@ -170,6 +172,13 @@ namespace CarFactoryView
             this.OrdersToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
             this.OrdersToolStripMenuItem.Text = "Список заказов";
             this.OrdersToolStripMenuItem.Click += new System.EventHandler(this.OrdersToolStripMenuItem_Click);
+            // 
+            // ClientsToolStripMenuItem
+            // 
+            this.ClientsToolStripMenuItem.Name = "ClientsToolStripMenuItem";
+            this.ClientsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ClientsToolStripMenuItem.Text = "Клиенты";
+            this.ClientsToolStripMenuItem.Click += new System.EventHandler(this.ClientsToolStripMenuItem_Click);
             // 
             // FormMain
             // 
@@ -212,5 +221,6 @@ namespace CarFactoryView
         private ToolStripMenuItem ComponentsListToolStripMenuItem;
         private ToolStripMenuItem ComponentCarsToolStripMenuItem;
         private ToolStripMenuItem OrdersToolStripMenuItem;
+        private ToolStripMenuItem ClientsToolStripMenuItem;
     }
 }
