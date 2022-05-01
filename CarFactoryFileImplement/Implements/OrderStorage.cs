@@ -33,7 +33,9 @@ namespace CarFactoryFileImplement.Implements
             }
             return source.Orders
                 .Where(rec => rec.CarId == model.CarId || (model.DateFrom.GetHashCode() != 0 && model.DateTo.GetHashCode() != 0 && rec.DateCreate >= model.DateFrom && rec.DateCreate <= model.DateTo) ||
-                (model.ClientId.HasValue && rec.ClientId == model.ClientId))
+                (model.ClientId.HasValue && rec.ClientId == model.ClientId) ||
+                (model.SearchStatus.HasValue && model.SearchStatus.Value == rec.Status) ||
+                (model.ImplementerId.HasValue && rec.ImplementerId == model.ImplementerId && model.Status == rec.Status))
                 .Select(CreateModel)
                 .ToList();
         }
@@ -87,6 +89,7 @@ namespace CarFactoryFileImplement.Implements
         {
             order.CarId = model.CarId;
             order.ClientId = model.ClientId.Value;
+            order.ImplementerId = model.ImplementerId.Value;
             order.Count = model.Count;
             order.Sum = model.Sum;
             order.Status = model.Status;
@@ -104,6 +107,8 @@ namespace CarFactoryFileImplement.Implements
                 CarId = order.CarId,
                 ClientId = order.ClientId,
                 ClientName = source.Clients.FirstOrDefault(client => client.Id == order.ClientId)?.ClientName,
+                ImplementerId = order.ImplementerId,
+                ImplementerName = source.Implementers.FirstOrDefault(implementer => implementer.Id == order.ImplementerId)?.Name,
                 Count = order.Count,
                 Sum = order.Sum,
                 Status = order.Status,

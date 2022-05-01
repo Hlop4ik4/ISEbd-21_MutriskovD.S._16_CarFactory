@@ -23,6 +23,7 @@ namespace CarFactoryListImplement.Implements
         {
             order.CarId = model.CarId;
             order.ClientId = model.ClientId.Value;
+            order.ImplementerId = model.ImplementerId.Value;
             order.Count = model.Count;
             order.Sum = model.Sum;
             order.Status = model.Status;
@@ -41,6 +42,8 @@ namespace CarFactoryListImplement.Implements
                 CarId = order.CarId,
                 ClientId = order.ClientId,
                 ClientName = source.Clients.FirstOrDefault(client => client.Id == order.ClientId)?.ClientName,
+                ImplementerId = order.ImplementerId,
+                ImplementerName = source.Implementers.FirstOrDefault(implementer => implementer.Id == order.ImplementerId)?.Name,
                 Count = order.Count,
                 Sum = order.Sum,
                 Status = order.Status,
@@ -69,7 +72,9 @@ namespace CarFactoryListImplement.Implements
             foreach (var order in source.Orders)
             {
                 if (order.CarId == model.CarId || (model.DateFrom.GetHashCode() != 0 && model.DateTo.GetHashCode() != 0 && order.DateCreate >= model.DateFrom && order.DateCreate <= model.DateTo) ||
-                    (model.ClientId.HasValue && order.ClientId == model.ClientId))
+                    (model.ClientId.HasValue && order.ClientId == model.ClientId) ||
+                    (model.SearchStatus.HasValue && model.SearchStatus.Value == order.Status) ||
+                    (model.ImplementerId.HasValue && order.ImplementerId == model.ImplementerId && model.Status == order.Status))
                 {
                     result.Add(CreateModel(order));
                 }

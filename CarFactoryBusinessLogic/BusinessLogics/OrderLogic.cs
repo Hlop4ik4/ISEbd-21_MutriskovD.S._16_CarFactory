@@ -62,11 +62,11 @@ namespace CarFactoryBusinessLogic.BusinessLogics
             {
                 Id = order.Id,
                 ClientId = order.ClientId,
+                ImplementerId = model.ImplementerId,
                 CarId = order.CarId,
                 Count = order.Count,
                 Sum = order.Sum,
                 DateCreate = order.DateCreate,
-                DateImplement = DateTime.Now,
                 Status = OrderStatus.Выполняется
             });
         }
@@ -86,11 +86,12 @@ namespace CarFactoryBusinessLogic.BusinessLogics
             {
                 Id = order.Id,
                 ClientId = order.ClientId,
+                ImplementerId = order.ImplementerId,
                 CarId = order.CarId,
                 Count = order.Count,
                 Sum = order.Sum,
                 DateCreate = order.DateCreate,
-                DateImplement = order.DateImplement,
+                DateImplement = DateTime.Now,
                 Status = OrderStatus.Готов
             });
         }
@@ -99,7 +100,8 @@ namespace CarFactoryBusinessLogic.BusinessLogics
         {
             var order = _orderStorage.GetElement(new OrderBindingModel
             {
-                Id = model.OrderId
+                Id = model.OrderId,
+                ImplementerId = model.ImplementerId
             });
             if (order == null)
             {
@@ -113,6 +115,7 @@ namespace CarFactoryBusinessLogic.BusinessLogics
             {
                 Id = order.Id,
                 ClientId = order.ClientId,
+                ImplementerId = order.ImplementerId,
                 CarId = order.CarId,
                 Count = order.Count,
                 Sum = order.Sum,
