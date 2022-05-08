@@ -44,6 +44,7 @@ namespace CarFactoryView
             this.ComponentCarsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.OrdersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.StartWorkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.письмаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -105,7 +106,8 @@ namespace CarFactoryView
             this.componentsToolStripMenuItem,
             this.carsToolStripMenuItem,
             this.ClientsToolStripMenuItem,
-            this.ImplementersToolStripMenuItem});
+            this.ImplementersToolStripMenuItem,
+            this.письмаToolStripMenuItem});
             this.guideToolStripMenuItem.Name = "guideToolStripMenuItem";
             this.guideToolStripMenuItem.Size = new System.Drawing.Size(94, 20);
             this.guideToolStripMenuItem.Text = "Справочники";
@@ -176,6 +178,13 @@ namespace CarFactoryView
             this.StartWorkToolStripMenuItem.Text = "Запуск работ";
             this.StartWorkToolStripMenuItem.Click += new System.EventHandler(this.StartWorkToolStripMenuItem_Click);
             // 
+            // письмаToolStripMenuItem
+            // 
+            this.письмаToolStripMenuItem.Name = "письмаToolStripMenuItem";
+            this.письмаToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.письмаToolStripMenuItem.Text = "Письма";
+            this.письмаToolStripMenuItem.Click += new System.EventHandler(this.письмаToolStripMenuItem_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -216,5 +225,6 @@ namespace CarFactoryView
         private ToolStripMenuItem ClientsToolStripMenuItem;
         private ToolStripMenuItem ImplementersToolStripMenuItem;
         private ToolStripMenuItem StartWorkToolStripMenuItem;
+        private ToolStripMenuItem письмаToolStripMenuItem;
     }
 }
