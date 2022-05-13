@@ -13,15 +13,17 @@ namespace CarFactoryView
         private readonly IReportLogic _reportLogic;
         private readonly IImplementerLogic _implementerLogic;
         private readonly IWorkProcess _workProcess;
+        private readonly IBackUpLogic _backUpLogic;
         private readonly FileDataListSingleton source;
 
-        public FormMain(IOrderLogic orderLogic, IReportLogic reportLogic, IImplementerLogic implementerLogic, IWorkProcess workProcess)
+        public FormMain(IOrderLogic orderLogic, IBackUpLogic backUpLogic, IReportLogic reportLogic, IImplementerLogic implementerLogic, IWorkProcess workProcess)
         {
             InitializeComponent();
             _orderLogic = orderLogic;
             _reportLogic = reportLogic;
             _implementerLogic = implementerLogic;
             _workProcess = workProcess;
+            _backUpLogic = backUpLogic;
             source = FileDataListSingleton.GetInstance();
         }
 
@@ -179,6 +181,26 @@ MessageBoxIcon.Error);
         {
             var form = Program.Container.Resolve<FormMails>();
             form.ShowDialog();
+        }
+
+        private void CreateBackUpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if(_backUpLogic != null)
+                {
+                    var fbd = new FolderBrowserDialog();
+                    if(fbd.ShowDialog() == DialogResult.OK)
+                    {
+                        _backUpLogic.CreateBackUp(new BackUpSaveBindingModel { FolderName = fbd.SelectedPath });
+                        MessageBox.Show("Бэкап создан", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

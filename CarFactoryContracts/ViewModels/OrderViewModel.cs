@@ -5,11 +5,14 @@ using System.Threading.Tasks;
 using System;
 using System.ComponentModel;
 using CarFactoryContracts.Enums;
+using CarFactoryContracts.Attributes;
+using System.Runtime.Serialization;
 
 namespace CarFactoryContracts.ViewModels
 {
     public class OrderViewModel
     {
+        [Column(title: "Номер", width: 100)]
         public int Id { get; set; }
 
         public int CarId { get; set; }
