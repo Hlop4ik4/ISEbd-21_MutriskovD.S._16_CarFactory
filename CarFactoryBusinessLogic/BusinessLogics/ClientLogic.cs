@@ -7,12 +7,18 @@ using CarFactoryContracts.BuisnessLogicsContracts;
 using CarFactoryContracts.StorageContracts;
 using CarFactoryContracts.BindingModels;
 using CarFactoryContracts.ViewModels;
+using System.Text.RegularExpressions;
 
 namespace CarFactoryBusinessLogic.BusinessLogics
 {
     public class ClientLogic : IClientLogic
     {
         private readonly IClientStorage _clientStorage;
+
+        private readonly int _passwordMaxLength = 50;
+
+        private readonly int _passwordMinLength = 10;
+
         public ClientLogic(IClientStorage clientStorage)
         {
             _clientStorage = clientStorage;
@@ -38,6 +44,14 @@ namespace CarFactoryBusinessLogic.BusinessLogics
             if (element != null && element.Id != model.Id)
             {
                 throw new Exception("Клиент с таким логином уже существует");
+            }
+            if(!Regex.IsMatch(model.Email, @"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.\s]\w+)*$"))
+            {
+                throw new Exception("В качестве логина должна быть указана почта");
+            }
+            if(model.Password.Length > _passwordMaxLength || model.Password.Length < _passwordMinLength || !Regex.IsMatch(model.Password, @"^((\w+\d+\W+)|(\w+\W+\d+)|(\d+\w+\W+)|(\d+\W+\w+)|(\W+\w+\d+)|(\W+\d+\w+))[\w\d\W]*$"))
+            {
+                throw new Exception($"Пароль должен состоять из цифр, букв и небуквенных символов и иметь длину от {_passwordMinLength} до {_passwordMaxLength}");
             }
 
             if (model.Id.HasValue)
