@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
+using CarFactoryContracts.Attributes;
+using System.Runtime.Serialization;
 
 namespace CarFactoryContracts.ViewModels
 {
@@ -11,10 +13,10 @@ namespace CarFactoryContracts.ViewModels
     {
         public int Id { get; set; }
 
-        [DisplayName("Имя клиента")]
+        [Column(title: "Имя клиента", width: 150)]
         public string ClientName { get; set; }
 
-        [DisplayName("Логин")]
+        [Column(title: "Почта клиента", width: 150)]
         public string Email { get; set; }
 
         public string Password { get; set; }
