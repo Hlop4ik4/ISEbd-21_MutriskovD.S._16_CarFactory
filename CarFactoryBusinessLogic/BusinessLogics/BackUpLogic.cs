@@ -10,6 +10,7 @@ using System.IO;
 using System.IO.Compression;
 using System.Reflection;
 using System.Runtime.Serialization.Json;
+using System.Xml.Serialization;
 
 namespace CarFactoryBusinessLogic.BusinessLogics
 {
@@ -49,7 +50,7 @@ namespace CarFactoryBusinessLogic.BusinessLogics
 
                 var dbsets = _backUpInfo.GetFullList();
 
-                MethodInfo method = GetType().BaseType.GetTypeInfo().GetDeclaredMethod("SaveToFile");
+                MethodInfo method = GetType().GetTypeInfo().GetDeclaredMethod("SaveToFile");
 
                 foreach(var set in dbsets)
                 {
@@ -72,10 +73,10 @@ namespace CarFactoryBusinessLogic.BusinessLogics
         {
             var records = _backUpInfo.GetList<T>();
             var obj = new T();
-            var jsonFormatter = new DataContractJsonSerializer(typeof(List<T>));
+            var xmlSerializer = new XmlSerializer(typeof(List<T>));
 
             using var fs = new FileStream(string.Format("{0}/{1}.xml", folderName, obj.GetType().Name), FileMode.OpenOrCreate);
-            jsonFormatter.WriteObject(fs, records);
+            xmlSerializer.Serialize(fs, records);
         }
     }
 }

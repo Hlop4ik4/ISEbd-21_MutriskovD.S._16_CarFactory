@@ -14,7 +14,7 @@ namespace CarFactoryDatabaseImplement
         {
             if(optionsBuilder.IsConfigured == false)
             {
-                optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-CEBHPLB\SQLEXPRESS;Initial Catalog=CarFactoryDatabase;Integrated Security=True;MultipleActiveResultSets=True;");
+                optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-DJLHJMK\SQLEXPRESS;Initial Catalog=CarFactoryDatabase;Integrated Security=True;MultipleActiveResultSets=True;");
             }
             base.OnConfiguring(optionsBuilder);
         }

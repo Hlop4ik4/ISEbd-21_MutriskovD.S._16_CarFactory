@@ -49,6 +49,7 @@ namespace CarFactoryBusinessLogic.MailWorker
             var list = new List<MessageInfoBindingModel>();
 
             using var client = new Pop3Client();
+            /*
             await Task.Run(() =>
             {
                 try
@@ -78,7 +79,7 @@ namespace CarFactoryBusinessLogic.MailWorker
                 {
                     client.Disconnect(true);
                 }
-            });
+            });*/
 
             return list;
         }
