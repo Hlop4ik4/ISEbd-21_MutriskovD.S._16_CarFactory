@@ -5,42 +5,44 @@ using System.Threading.Tasks;
 using System;
 using System.ComponentModel;
 using CarFactoryContracts.Enums;
+using CarFactoryContracts.Attributes;
+using System.Runtime.Serialization;
 
 namespace CarFactoryContracts.ViewModels
 {
     public class OrderViewModel
     {
+        [Column(title: "Номер", width: 100)]
         public int Id { get; set; }
 
         public int CarId { get; set; }
 
-        [DisplayName("Id клиента")]
         public int ClientId { get; set; }
 
         public int? ImplementerId { get; set; }
 
-        [DisplayName("Изделие")]
+        [Column(title: "Автомобиль", gridViewAutoSize: GridViewAutoSize.Fill)]
         public string CarName { get; set; }
 
-        [DisplayName("Имя клиента")]
+        [Column(title: "Клиент", width: 150)]
         public string ClientName { get; set; }
 
-        [DisplayName("Имя исполнителя")]
+        [Column(title: "Исполнитель", width: 150)]
         public string ImplementerName { get; set; }
 
-        [DisplayName("Количество")]
+        [Column(title: "Количество", width: 100)]
         public int Count { get; set; }
 
-        [DisplayName("Сумма")]
+        [Column(title: "Сумма", width: 50)]
         public decimal Sum { get; set; }
 
-        [DisplayName("Статус")]
+        [Column(title: "Статус", width: 100)]
         public OrderStatus Status { get; set; }
 
-        [DisplayName("Дата создания")]
+        [Column(title: "Дата создания", width: 100)]
         public DateTime DateCreate { get; set; }
 
-        [DisplayName("Дата выполнения")]
+        [Column(title: "Дата выполнения", width: 100)]
         public DateTime? DateImplement { get; set; }
     }
 }

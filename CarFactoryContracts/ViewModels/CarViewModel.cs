@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Collections.Generic;
 using System.ComponentModel;
+using CarFactoryContracts.Attributes;
+using System.Runtime.Serialization;
 
 namespace CarFactoryContracts.ViewModels
 {
@@ -12,10 +13,10 @@ namespace CarFactoryContracts.ViewModels
     {
         public int Id { get; set; }
 
-        [DisplayName("Название автомобиля")]
+        [Column(title: "Автомобиль", gridViewAutoSize: GridViewAutoSize.Fill)]
         public string CarName { get; set; }
 
-        [DisplayName("Цена")]
+        [Column(title: "Цена", width: 100)]
         public decimal Price { get; set; }
 
         public Dictionary<int, (string, int)> CarComponents { get; set; }

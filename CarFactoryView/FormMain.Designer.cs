@@ -39,12 +39,13 @@ namespace CarFactoryView
             this.carsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ClientsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ImplementersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.письмаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.отчетыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ComponentsListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ComponentCarsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.OrdersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.StartWorkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.письмаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.CreateBackUpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -93,7 +94,8 @@ namespace CarFactoryView
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.guideToolStripMenuItem,
             this.отчетыToolStripMenuItem,
-            this.StartWorkToolStripMenuItem});
+            this.StartWorkToolStripMenuItem,
+            this.CreateBackUpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(813, 24);
@@ -140,6 +142,13 @@ namespace CarFactoryView
             this.ImplementersToolStripMenuItem.Text = "Исполнители";
             this.ImplementersToolStripMenuItem.Click += new System.EventHandler(this.ImplementersToolStripMenuItem_Click);
             // 
+            // письмаToolStripMenuItem
+            // 
+            this.письмаToolStripMenuItem.Name = "письмаToolStripMenuItem";
+            this.письмаToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.письмаToolStripMenuItem.Text = "Письма";
+            this.письмаToolStripMenuItem.Click += new System.EventHandler(this.письмаToolStripMenuItem_Click);
+            // 
             // отчетыToolStripMenuItem
             // 
             this.отчетыToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -178,12 +187,12 @@ namespace CarFactoryView
             this.StartWorkToolStripMenuItem.Text = "Запуск работ";
             this.StartWorkToolStripMenuItem.Click += new System.EventHandler(this.StartWorkToolStripMenuItem_Click);
             // 
-            // письмаToolStripMenuItem
+            // CreateBackUpToolStripMenuItem
             // 
-            this.письмаToolStripMenuItem.Name = "письмаToolStripMenuItem";
-            this.письмаToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.письмаToolStripMenuItem.Text = "Письма";
-            this.письмаToolStripMenuItem.Click += new System.EventHandler(this.письмаToolStripMenuItem_Click);
+            this.CreateBackUpToolStripMenuItem.Name = "CreateBackUpToolStripMenuItem";
+            this.CreateBackUpToolStripMenuItem.Size = new System.Drawing.Size(97, 20);
+            this.CreateBackUpToolStripMenuItem.Text = "Создать бэкап";
+            this.CreateBackUpToolStripMenuItem.Click += new System.EventHandler(this.CreateBackUpToolStripMenuItem_Click);
             // 
             // FormMain
             // 
@@ -226,5 +235,6 @@ namespace CarFactoryView
         private ToolStripMenuItem ImplementersToolStripMenuItem;
         private ToolStripMenuItem StartWorkToolStripMenuItem;
         private ToolStripMenuItem письмаToolStripMenuItem;
+        private ToolStripMenuItem CreateBackUpToolStripMenuItem;
     }
 }
